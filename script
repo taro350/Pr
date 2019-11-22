@@ -1,0 +1,12 @@
+import os
+from apiclient.discovery import build
+
+a = 'YT_API'
+key = os.environ.get(a)
+
+youtube = build('youtube', 'v3', developerKey=key)
+
+r = youtube.search().list(part='snippet',q='twentyonepilots',type='video').execute()
+
+for i in r['items']:
+    print(i['snippet']['title'])
