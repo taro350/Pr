@@ -16,8 +16,10 @@ def a(df):
     canvas.pack()
 	
     def exp_func():
+        global df
+        data_f = df
         export_path = filedialog.asksaveasfilename(defaultextension='.csv')
-        df.to_csv(export_path, index=False)
+        data_f.to_csv(export_path, index=False)
 
     Butt = tk.Button(text='Push', command=exp_func)
     canvas.create_window(100, 100, window=Butt)
